@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-light_blue.min.css" />
+  <link rel="icon" href="/images/sushigo.jpg">
+  <style>
+    body  {
+      background-color: #cccccc;
+    }
+    div {
+      margin-right: 150px;
+      margin-left: 80px;
+    }
+  </style>
+</head>
+
+<body background="/images/background.jpg">
+  <h2> Sushi Go Calculator </h2>
+  <h5 id="winner"></h5>
+  <h6 id="scores"></h6>
+
+  <table id="myTable" cellpadding="2" cellspacing="2" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Dumplings</th>
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Tempura</th>
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Sashimi</th>
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Egg</th>
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 30px">Wasabi</th>
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Salmon</th>
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 30px">Wasabi</th>
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Squid</th>
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 30px">Wasabi</th>
+    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Maki</th>
+    <tr>
+      <td><input type="text" id="numDumplings0" style="text-align: center; width: 100px"/></td>
+      <td><input type="text" id="numTempura0" style="text-align: center; width: 100px"/></td>
+      <td><input type="text" id="numSashimi0" style="text-align: center; width: 100px"/></td>
+      <td><input type="text" id="numEgg0" style="text-align: center; width: 100px"/></td>
+      <td><input type="text" id="numEggWasabi0" style="text-align: center; width: 30px"/></td>
+      <td><input type="text" id="numSalmon0" style="text-align: center; width: 100px"/></td>
+      <td><input type="text" id="numSalmonWasabi0" style="text-align: center; width: 30px"/></td>
+      <td><input type="text" id="numSquid0" style="text-align: center; width: 100px"/></td>
+      <td><input type="text" id="numSquidWasabi0" style="text-align: center; width: 30px"/></td>
+      <td><input type="text" id="numMaki0" style="text-align: center; width: 100px"/></td>
+    </tr>
+  </table>
+  <br/>
+  <button id = "submit" onclick="readTable();" 
+  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+  Calculate!
+</button>
+
+<!-- <input type="button" id="submit" value="Calculate!" onclick="readTable();"> -->
+
+<script type="text/javascript">
+  var index = 1;
+  var numPlayers = 0;
+  do{
+    numPlayers = prompt("Welcome to the Sushi Go Score Calculator! Please enter the number of players (2-5): ");
+    if (numPlayers == null){
+      break;
+    }
+    else if (numPlayers < 2 || numPlayers > 5) {
+      alert("Invalid Input!");
+    }
+  } while (numPlayers < 2 || numPlayers > 5); 
+
+  function insertRow(){
+    var table=document.getElementById("myTable");
+    var row=table.insertRow(table.rows.length);
+    var cell1=row.insertCell(0);
+    var t1=document.createElement("input");
+    t1.id = "numDumplings"+index;
+    t1.style = "text-align: center; width: 100px"
+    cell1.appendChild(t1);
+    var cell2=row.insertCell(1);
+    var t2=document.createElement("input");
+    t2.id = "numTempura"+index;
+    t2.style = "text-align: center; width: 100px"
+    cell2.appendChild(t2);
+    var cell3=row.insertCell(2);
+    var t3=document.createElement("input");
+    t3.id = "numSashimi"+index;
+    t3.style = "text-align: center; width: 100px"
+    cell3.appendChild(t3);
+    var cell4=row.insertCell(3);
+    var t4=document.createElement("input");
+    t4.id = "numEgg"+index;
+    t4.style = "text-align: center; width: 100px"
+    cell4.appendChild(t4);
+    var cell5=row.insertCell(4);
+    var t5=document.createElement("input");
+    t5.id = "numEggWasabi"+index;
+    t5.style = "text-align: center; width: 30px"
+    cell5.appendChild(t5);
+    var cell6=row.insertCell(5);
+    var t6=document.createElement("input");
+    t6.id = "numSalmon"+index;
+    t6.style = "text-align: center; width: 100px"
+    cell6.appendChild(t6);
+    var cell7=row.insertCell(6);
+    var t7=document.createElement("input");
+    t7.id = "numSalmonWasabi"+index;
+    t7.style = "text-align: center; width: 30px"
+    cell7.appendChild(t7);
+    var cell8=row.insertCell(7);
+    var t8=document.createElement("input");
+    t8.id = "numSquid"+index;
+    t8.style = "text-align: center; width: 100px"
+    cell8.appendChild(t8);
+    var cell9=row.insertCell(8);
+    var t9=document.createElement("input");
+    t9.id = "numSquidWasabi"+index;
+    t9.style = "text-align: center; width: 30px"
+    cell9.appendChild(t9);
+    var cell10=row.insertCell(9);
+    var t10=document.createElement("input");
+    t10.id = "numMaki"+index;
+    t10.style = "text-align: center; width: 100px"
+    cell10.appendChild(t10);
+    index++;
+  }
+  while (index < numPlayers) {
+    insertRow();
+  }
+
+
+  var playerArray = [];
+
+
+  function Player(name, dumplings, tempura, sashimi, egg, salmon, squid, 
+    eggWasabi, salmonWasabi, squidWasabi, maki) {
+    this.name = name;
+    this.dumplings = dumplings;
+    this.tempura = tempura;
+    this.sashimi = sashimi;
+    this.egg = egg;    
+    this.salmon = salmon;
+    this.squid = squid;
+    this.eggWasabi = eggWasabi;
+    this.salmonWasabi = salmonWasabi;
+    this.squidWasabi = squidWasabi;
+    this.maki = maki;
+    this.score = calcScore;
+  }
+
+  function numEqual (a, target) {
+    var counter = 0;
+    for (i = 0; i < a.length; i++) {
+      if (a[i] == target) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  function calcScore () {
+    var score = 0;
+
+    var makiArray = [];
+    for (i = 0; i < numPlayers; i++) {
+      makiArray[i] = document.getElementById('numMaki'+i).value;
+    }
+    makiArray.sort();
+    makiArray.reverse();
+    var first = makiArray[0];
+    var second;
+    for (i = 1; i < makiArray.length; i++) {
+      if (makiArray[i] != first) {
+        second = makiArray[i];
+      }
+    }
+    for (i = 0; i < numPlayers; i++){
+      if (this.maki == first) {
+        score += 6 / (numEqual(makiArray, first));
+      }
+      else if (this.maki == second && (numEqual(makiArray, first)) == 1) {
+        score += 3 / (numEqual(makiArray, second));
+      }
+    }
+
+    if (this.dumplings == 0) {
+      score += 0;
+    }
+    else if (this.dumplings == 1) {
+      score += 1;
+    }
+    else if (this.dumplings == 2) {
+      score += 3;
+    }
+    else if (this.dumplings == 3) {
+      score += 6;
+    }
+    else if (this.dumplings == 4) {
+      score += 10;
+    }
+    else{
+      score += 15;
+    }
+
+    score += Math.floor(this.tempura / 2) * 5;
+    score += Math.floor(this.sashimi / 3) * 10;
+    score += this.eggWasabi * 3 + (this.egg - this.eggWasabi);     
+    score += this.salmonWasabi * 6 + (this.salmon - this.salmonWasabi) * 2;
+    score += this.squidWasabi * 9 + (this.squid - this.squidWasabi) * 3;
+    return score;
+  }
+
+  function readTable(){
+    document.getElementById('myTable').style.display='none';
+    document.getElementById('submit').style.display='none';
+    for (i = 0; i < numPlayers; i++){
+      playerArray[i] = new Player("test", 
+        document.getElementById('numDumplings'+i).value, 
+        document.getElementById('numTempura'+i).value,
+        document.getElementById('numSashimi'+i).value, 
+        document.getElementById('numEgg'+i).value, 
+        document.getElementById('numSalmon'+i).value,
+        document.getElementById('numSquid'+i).value,  
+        document.getElementById('numEggWasabi'+i).value, 
+        document.getElementById('numSalmonWasabi'+i).value, 
+        document.getElementById('numSquidWasabi'+i).value,  
+        document.getElementById('numMaki'+i).value);
+    }
+
+    var scoreArray = [] 
+    for (i = 0; i < numPlayers; i++){
+      scoreArray[i] = playerArray[i].score();
+    }
+    var max = Math.max.apply(Math, scoreArray);
+    var winner;
+    for (i = 0; i < numPlayers; i++){
+      if (playerArray[i].score() == max) {
+        winner = i + 1;
+      }
+    }
+
+    var winnerMsg = document.getElementById('winner');
+    if (numEqual(scoreArray, max) == 1) {
+      winnerMsg.innerHTML = "And the winner of this round is ... Player " + winner + "!!!";
+    }
+    else {
+      winnerMsg.innerHTML = "And we have a " + numEqual(scoreArray, max) + "-way tie!"
+    }
+    var scoreMsg = document.getElementById('scores');
+    var i = 0;
+    do {
+      scoreMsg.innerHTML += "Player " + (i + 1) + ": " + playerArray[i].score() + "<br/>";
+      i++;
+    } while (i < numPlayers);
+  }
+
+</script>
+</body>
+</html>
