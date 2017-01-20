@@ -14,47 +14,47 @@
       background-color: #cccccc;
     }
     div {
-      margin-right: 150px;
-      margin-left: 80px;
+      margin: 30px 30px 30px 30px;
     }
   </style>
 </head>
 
 <body background="/images/background.jpg">
-  <h2> Sushi Go Calculator </h2>
-  <h5 id="winner"></h5>
-  <h6 id="scores"></h6>
+  <div>
+    <h2> Sushi Go Calculator </h2>
+    <h5 id="winner"></h5>
+    <h6 id="scores"></h6>
 
-  <table id="myTable" cellpadding="2" cellspacing="2" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Dumplings</th>
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Tempura</th>
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Sashimi</th>
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Egg</th>
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 30px">Wasabi</th>
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Salmon</th>
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 30px">Wasabi</th>
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Squid</th>
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 30px">Wasabi</th>
-    <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Maki</th>
-    <tr>
-      <td><input type="text" id="numDumplings0" style="text-align: center; width: 100px"/></td>
-      <td><input type="text" id="numTempura0" style="text-align: center; width: 100px"/></td>
-      <td><input type="text" id="numSashimi0" style="text-align: center; width: 100px"/></td>
-      <td><input type="text" id="numEgg0" style="text-align: center; width: 100px"/></td>
-      <td><input type="text" id="numEggWasabi0" style="text-align: center; width: 30px"/></td>
-      <td><input type="text" id="numSalmon0" style="text-align: center; width: 100px"/></td>
-      <td><input type="text" id="numSalmonWasabi0" style="text-align: center; width: 30px"/></td>
-      <td><input type="text" id="numSquid0" style="text-align: center; width: 100px"/></td>
-      <td><input type="text" id="numSquidWasabi0" style="text-align: center; width: 30px"/></td>
-      <td><input type="text" id="numMaki0" style="text-align: center; width: 100px"/></td>
-    </tr>
-  </table>
-  <br/>
-  <button id = "submit" onclick="readTable();" 
-  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-  Calculate!
-</button>
+    <table id="myTable" cellpadding="2" cellspacing="2" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Dumplings</th>
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Tempura</th>
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Sashimi</th>
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Egg</th>
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 30px">Wasabi</th>
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Salmon</th>
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 30px">Wasabi</th>
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Squid</th>
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 30px">Wasabi</th>
+      <th class= "mdl-data-table__cell--non-numeric" style ="text-align: center; width: 100px">Maki</th>
+      <tr>
+        <td><input type="text" id="numDumplings0" style="text-align: center; width: 100px"/></td>
+        <td><input type="text" id="numTempura0" style="text-align: center; width: 100px"/></td>
+        <td><input type="text" id="numSashimi0" style="text-align: center; width: 100px"/></td>
+        <td><input type="text" id="numEgg0" style="text-align: center; width: 100px"/></td>
+        <td><input type="text" id="numEggWasabi0" style="text-align: center; width: 30px"/></td>
+        <td><input type="text" id="numSalmon0" style="text-align: center; width: 100px"/></td>
+        <td><input type="text" id="numSalmonWasabi0" style="text-align: center; width: 30px"/></td>
+        <td><input type="text" id="numSquid0" style="text-align: center; width: 100px"/></td>
+        <td><input type="text" id="numSquidWasabi0" style="text-align: center; width: 30px"/></td>
+        <td><input type="text" id="numMaki0" style="text-align: center; width: 100px"/></td>
+      </tr>
+    </table>
+    <br/>
+    <button id = "submit" onclick="readTable();" 
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+    Calculate!</button>
+  </div>
 
-<script type="text/javascript" src="SushiGo.js"></script>
+  <script type="text/javascript" src="SushiGo.js"></script>
 </body>
 </html>
