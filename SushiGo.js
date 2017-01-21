@@ -4,8 +4,15 @@ do{
   numPlayers = prompt("Welcome to the Sushi Go Score Calculator! Please enter the number of players (2-5): ");
   if (numPlayers == null){
     break;
-  }
-  else if (numPlayers < 2 || numPlayers > 5) {
+  } else if (numPlayers == 2) {
+    alert("Each player should be dealt 10 cards.");
+  } else if (numPlayers == 3) {
+    alert("Each player should be dealt 9 cards.");
+  } else if (numPlayers == 4) {
+    alert("Each player should be dealt 8 cards.");
+  } else if (numPlayers == 5) {
+    alert("Each player should be dealt 7 cards.");
+  } else {
     alert("Invalid Input!");
   }
 } while (numPlayers < 2 || numPlayers > 5); 
@@ -118,28 +125,22 @@ function calcScore () {
   for (i = 0; i < numPlayers; i++){
     if (this.maki == first) {
       score += 6 / (numEqual(makiArray, first));
-    }
-    else if (this.maki == second && (numEqual(makiArray, first)) == 1) {
+    } else if (this.maki == second && (numEqual(makiArray, first)) == 1) {
       score += 3 / (numEqual(makiArray, second));
     }
   }
 
   if (this.dumplings == 0) {
     score += 0;
-  }
-  else if (this.dumplings == 1) {
+  } else if (this.dumplings == 1) {
     score += 1;
-  }
-  else if (this.dumplings == 2) {
+  } else if (this.dumplings == 2) {
     score += 3;
-  }
-  else if (this.dumplings == 3) {
+  } else if (this.dumplings == 3) {
     score += 6;
-  }
-  else if (this.dumplings == 4) {
+  } else if (this.dumplings == 4) {
     score += 10;
-  }
-  else{
+  } else{
     score += 15;
   }
 
@@ -182,10 +183,10 @@ function readTable(){
 
   var winnerMsg = document.getElementById('winner');
   if (numEqual(scoreArray, max) == 1) {
-    winnerMsg.innerHTML = "And the winner of this round is ... Player " + winner + "!!!";
+    winnerMsg.innerHTML = "And the winner of this round is ... Player " + winner + "!!! Refresh the page to play again.";
   }
   else {
-    winnerMsg.innerHTML = "And we have a " + numEqual(scoreArray, max) + "-way tie!"
+    winnerMsg.innerHTML = "And we have a " + numEqual(scoreArray, max) + "-way tie! Refresh the page to play again."
   }
   var scoreMsg = document.getElementById('scores');
   var i = 0;
